@@ -25,16 +25,5 @@ services:
     ports:
       - "8089:8089"
 
-  chatbot:
-    build: ./whatsapp-bot
-    container_name: whatsapp_bot
-    restart: always
-    depends_on:
-      - backend
-    environment:
-      - CHROMIUM_PATH=/usr/bin/chromium-browser
-    ports:
-      - "3000:3000"
-
 volumes:
   mysql_data:
