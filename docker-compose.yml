@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bloque_solicitudes
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  UsuarioJPARest:
+    build: ./BloqueApi
+    container_name: backendApi
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/bloque_solicitudes?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8089:8089"
+
+  chatbot:
+    build: ./whatsapp-bot
+    container_name: whatsapp_bot
+    restart: always
+    depends_on:
+      - backend
+    environment:
+      - CHROMIUM_PATH=/usr/bin/chromium-browser
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql_data:

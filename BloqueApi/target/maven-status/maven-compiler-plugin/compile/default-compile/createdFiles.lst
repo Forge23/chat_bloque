@@ -1,0 +1,10 @@
+edu\itq\soa\repository\EmpleadosRepository.class
+edu\itq\soa\rest\FichaRest.class
+edu\itq\soa\service\FichaService.class
+edu\itq\soa\UsuarioJpaRestApplication.class
+edu\itq\soa\service\EmployeeService.class
+edu\itq\soa\dto\Ficha.class
+edu\itq\soa\dto\Empleados.class
+edu\itq\soa\repository\FichaRepository.class
+edu\itq\soa\rest\FichaRest$TokenRequest.class
+edu\itq\soa\rest\EmpleadosRest.class
