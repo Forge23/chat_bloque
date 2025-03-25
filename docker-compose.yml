@@ -12,7 +12,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  UsuarioJPARest:
+  usuariojparest:
     build: ./BloqueApi
     container_name: backendApi
     restart: always
@@ -24,6 +24,15 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     ports:
       - "8089:8089"
+
+  whatsapp-bot:
+    build: ./whatsapp-bot
+    container_name: whatsapp_bot
+    restart: always
+    volumes:
+      - ./whatsapp-bot/.wwebjs_cache:/app/.wwebjs_cache
+    depends_on:
+      - UsuarioJPARest
 
 volumes:
   mysql_data:
