@@ -32,7 +32,7 @@ services:
     volumes:
       - ./whatsapp-bot/.wwebjs_cache:/app/.wwebjs_cache
     depends_on:
-      - UsuarioJPARest
+      - usuariojparest
 
 volumes:
   mysql_data:
