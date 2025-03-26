@@ -25,14 +25,5 @@ services:
     ports:
       - "8089:8089"
 
-  whatsapp-bot:
-    build: ./whatsapp-bot
-    container_name: whatsapp_bot
-    restart: always
-    volumes:
-      - ./whatsapp-bot/.wwebjs_cache:/app/.wwebjs_cache
-    depends_on:
-      - usuariojparest
-
 volumes:
   mysql_data:
