@@ -41,7 +41,7 @@ public class Ficha { // usuario_streaming
     
     private String fecha;
     
-    private int aforo;
+    private String aforo;
     
     private int token;
     
